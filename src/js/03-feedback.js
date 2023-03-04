@@ -30,6 +30,7 @@ function onFormSubmit(e) {
   e.preventDefault();
   // console.log('send form');
   form.reset();
-  console.log(savedFormData);
+  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+  
   localStorage.removeItem('feedback-form-state');
 }
