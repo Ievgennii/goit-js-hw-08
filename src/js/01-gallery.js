@@ -2,6 +2,7 @@
 import SimpleLightbox from "simplelightbox";
 // Дополнительный импорт стилей
 import "simplelightbox/dist/simple-lightbox.min.css";
+
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
@@ -14,7 +15,6 @@ const ulGaleryEl = document.querySelector('.gallery');
 const addImagesGalery = createImagesGalery(galleryItems);
 ulGaleryEl.innerHTML = addImagesGalery;
 
-ulGaleryEl.addEventListener('click', onClickImage);
 
 function createImagesGalery(items) {
   return items
@@ -31,15 +31,4 @@ function createImagesGalery(items) {
     .join('');
 }
 
-function onClickImage(evt) {
-  evt.preventDefault();
-  // console.log(evt);
-  // console.log(evt.target.nodeName);
-
-  if (evt.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  const lightbox = new SimpleLightbox('.gallery a');
-  lightbox.open();  
-}
+new SimpleLightbox('.gallery a', { captionDelay: 250 });
